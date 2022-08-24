@@ -8,7 +8,7 @@ import org.springframework.http.codec.json.KotlinSerializationJsonDecoder
 import org.springframework.http.codec.json.KotlinSerializationJsonEncoder
 import org.springframework.web.reactive.config.WebFluxConfigurer
 import todoapp.application.TodoManageProcessor
-import todoapp.domain.RandomTodoIdGenerator
+import todoapp.domain.UUIDTodoIdGenerator
 import todoapp.serializer.Serializers
 import todoapp.web.IndexRouter
 import todoapp.web.TodoRouter
@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
     val applicationBeans = beans {
         bean {
             TodoManageProcessor(
-                todoIdGenerator = RandomTodoIdGenerator(),
+                todoIdGenerator = UUIDTodoIdGenerator(),
                 todoRepository = ref()
             )
         }
